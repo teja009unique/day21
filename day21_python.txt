@@ -1,0 +1,149 @@
+Q) What are decorators ? Why do we use them?
+A) Decorators will be used if we want to pass a function as a parameter to the function which we declare.
+   Decorators will decorate ,i.e, they will add extra functionality.
+   Decorators will be declared using '@' symbol.
+   After '@', we need to give the name of the method to which hello() function should be passed.
+
+   Ex:
+   def goodmorning(func) :
+	print("good morning")
+	return func
+   @goodmorning
+   def hello() :
+	return "Hello world"
+   print(hello())
+
+
+   o/p: good morning
+        Hello world
+
+
+
+
+  
+  Decorator will be used for all the functions which we declare below it.
+  Ex:
+  def goodmorning(func) :
+	print("good morning")
+	return func
+   @goodmorning
+   def hello() :
+	return "Hello world"
+   def greet() :
+	return "welcome to our channel'
+   print(greet())
+
+   o/p: good morning
+        welcome to our channel
+
+
+
+
+
+
+ Decorator method will be called only once, even if multiple methods are called.
+ Decorator method will be executed on the first called method.
+ Ex:
+ def goodmorning(func) :
+	print("good morning")
+	return func
+   @goodmorning
+   def hello() :
+	return "Hello world"
+   def greet() :
+	return "welcome to our channel'
+   print(hello())
+   print(greet())
+
+   o/p: good morning
+        Hello world
+        welcome to our channel
+
+
+
+
+
+
+The call stack for decorators will be from bottom to top.
+Ex:
+def goodmorning(func) :
+	print("good morning")
+	return func
+def hello(func) :
+	print("Hello world")
+	return func
+def greet(func) :
+	print("good evening')
+	return func
+@greet
+@hello
+@goodmorning
+def greet() :
+	return "hello"
+print(greet())
+
+   
+o/p: good morning
+     Hello world
+     good evening
+     hello
+
+
+
+
+---------------------------------------------------------------
+Q) What are getters and setters ?
+A) Getter methods :
+   Getter methods are the methods which fetches the data of the private variable to us.
+   Ex:
+   class student :
+	def __init__(self,rollno,name) :
+		self.name = name
+		self.rollno = rollno
+   rama = student(1,"rama")
+   rama.name = "krishna"
+   print(rama.name)
+
+   class cars :
+	def__init__(self,carname,model,price) :
+		self._carname = carname
+		self._model = model
+		self._price = price
+	def get_carname(self) :
+		return self._carname
+   bmw = cars("bmw",7,1)
+   print(bmw.get_carname())
+
+   o/p: krishna
+        bmw
+
+
+
+
+  Setter methods :
+  If we want to change / set the values of private values, the methods which we use are called Setter methods.
+  Ex:
+   class student :
+	def __init__(self,rollno,name) :
+		self.name = name
+		self.rollno = rollno
+   rama = student(1,"rama")
+   rama.name = "krishna"
+   print(rama.name)
+
+   class cars :
+	def__init__(self,carname,model,price) :
+		self._carname = carname
+		self._model = model
+		self._price = price
+	def get_carname(self) :
+		return self._carname
+	def set_carname(self,carname) :
+		self._carname = carname
+   bmw = cars("bmw",7,1)
+   bmw.set_carname("tesla")
+   print(bmw.get_carname())
+
+
+   o/p: krishna
+        tesla
